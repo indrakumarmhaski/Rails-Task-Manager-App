@@ -54,3 +54,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'bootstrap', '~> 4.1', '>= 4.1.1'
+gem 'cocoon', '~> 1.2', '>= 1.2.11'
