@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader 
   validates :name, :avatar, presence: true
+  has_many :projects, dependent: :destroy
 end

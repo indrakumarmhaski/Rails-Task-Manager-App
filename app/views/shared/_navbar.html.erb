@@ -12,6 +12,12 @@
       <li class="nav-item">
         <%= link_to 'About', pages_about_path, class: 'nav-link active' %>
       </li>
+   
+      <% if current_user %>
+        <li class="nav-item">
+          <%= link_to 'My Projects', projects_path, class: 'nav-link active' %>
+        </li>
+      <% end %>
 
 
     </ul>
