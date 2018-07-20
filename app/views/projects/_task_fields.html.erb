@@ -1,7 +1,9 @@
 <div class="nested-fields from-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
+    <%= f.label :complete, class: 'inline'%>
     <%= f.check_box :complete %>
-    <%= link_to_remove_association 'Remove Task',f, class: 'btn btn-danger btn-sm'%>
+    <br>
+    <%= link_to_remove_association '--',f, class: 'btn btn-danger btn-sm'%>
 
 </div>

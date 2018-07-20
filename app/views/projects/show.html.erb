@@ -14,7 +14,11 @@
 <h3>Tasks:</h3>
 <ul>
   <% @project.tasks.each do |p| %>
-    <li><%= p.title %> </li>
+    <% if p.complete %>
+        <li class="font-italic"><%= p.title %> </li>
+    <% else %>
+        <li class="font-weight-normal" ><%= p.title %> </li>
+    <% end %>
   <% end %>
 </ul>
 <%= link_to 'Edit', edit_project_path(@project) %> |
