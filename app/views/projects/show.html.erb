@@ -12,12 +12,12 @@
 
 <hr>
 <h3>Tasks:</h3>
-<ul>
-  <% @project.tasks.each do |p| %>
+<ul class=" sortable">
+  <% @project.tasks.order("position ASC").each do |p| %>
     <% if p.complete %>
-        <li class="font-italic"><%= p.title %> </li>
+        <li class="card font-italic" data-id="<%= p.id %>"><%= p.title %> </li>
     <% else %>
-        <li class="font-weight-normal" ><%= p.title %> </li>
+        <li class="card font-weight-normal" data-id="<%= p.id %>" ><%= p.title %> </li>
     <% end %>
   <% end %>
 </ul>

@@ -24,6 +24,14 @@ class ProjectsController < ApplicationController
   def edit
   end
 
+  def sort
+    params[:order].each do |key,value|
+      Task.find(value[:id]).update(position: value[:position])
+    end 
+
+    render body: nil
+  end
+
   # POST /projects
   # POST /projects.json
   def create
