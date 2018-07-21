@@ -18,7 +18,7 @@
         <ul class=" sortable col-12">
           <% @project.tasks.order("position ASC").each do |p| %>
             <% if p.complete %>
-                <li class="card font-italic form-control mt-1" data-id="<%= p.id %>"><%= p.title %> </li>
+                <li class="card font-italic font-weight-bold form-control mt-1" data-id="<%= p.id %>"><%= p.title %> </li>
             <% else %>
                 <li class="card font-weight-normal form-control mt-1" data-id="<%= p.id %>" ><%= p.title %> </li>
             <% end %>

@@ -1,9 +1,19 @@
 <div class="nested-fields from-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
-    <%= f.label :complete, class: 'inline'%>
-    <%= f.check_box :complete %>
+    <%= f.label :title, class: "lead" %>
+
+    <div class="row">
+        <div class="col-10 pr-0">
+             <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="col-2 p-0">
+             <%= link_to_remove_association '<i class="fas fa-minus"></i>'.html_safe,f, class: 'btn mt-2 btn-danger btn-sm'%>
+        </div>
+    </div>
+
+    <div class="text-left mt-1">
+        <%= f.label :complete, class: 'inline font-weight-light complete text-left' %>
+        <%= f.check_box :complete %>
+    </div>
     <br>
-    <%= link_to_remove_association '--',f, class: 'btn btn-danger btn-sm'%>
 
 </div>

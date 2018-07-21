@@ -1,37 +1,47 @@
-<%= form_with(model: project, local: true) do |form| %>
-  <% if project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+<div class="form-signin home-form body text-center">
 
-      <ul>
-      <% project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <%= form_with(model: project, local: true) do |form| %>
+    <% if project.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+        <ul>
+        <% project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name, class: "lead" %>
+      <%= form.text_field :name, class: "form-control",  autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description, class: "lead" %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.fields_for :tasks do |task_form| %>
+        <%= render 'task_fields',f: task_form %>
       <% end %>
-      </ul>
+
+      <div class="text-left">
+        <%= link_to_add_association '<i class="fas fa-2x fa-plus"></i>'.html_safe, form, :tasks, class: 'btn add-btn btn-primary btn-sm'%>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-lg btn-secondry " type="submit"> Submit </button>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+   <br>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+  <%= link_to 'Show', @project %> |
+  <%= link_to 'Back', projects_path %>
 
-  <div class="field">
-    <%= form.fields_for :tasks do |task_form| %>
-      <%= render 'task_fields',f: task_form %>
-    <% end %>
 
-    <div>
-      <%= link_to_add_association 'Add Task', form, :tasks, class: 'btn btn-primary btn-lg'%>
-    </div>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
