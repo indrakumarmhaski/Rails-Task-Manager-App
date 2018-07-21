@@ -1,25 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="set-min-height">
+  <br>
+  <h3 class="text-center">
+    <%= @project.name %>
+  </h3>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+  <div class="container-fluid">
+      <hr>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+    <p>
+      <strong class="lead">Description:</strong>
+      <%= @project.description %>
+    </p>
 
-<hr>
-<h3>Tasks:</h3>
-<ul class=" sortable">
-  <% @project.tasks.order("position ASC").each do |p| %>
-    <% if p.complete %>
-        <li class="card font-italic" data-id="<%= p.id %>"><%= p.title %> </li>
-    <% else %>
-        <li class="card font-weight-normal" data-id="<%= p.id %>" ><%= p.title %> </li>
-    <% end %>
-  <% end %>
-</ul>
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+    <div class="containe">
+      <h3>Tasks:</h3>
+      <div class="row">
+        <ul class=" sortable col-12">
+          <% @project.tasks.order("position ASC").each do |p| %>
+            <% if p.complete %>
+                <li class="card font-italic form-control mt-1" data-id="<%= p.id %>"><%= p.title %> </li>
+            <% else %>
+                <li class="card font-weight-normal form-control mt-1" data-id="<%= p.id %>" ><%= p.title %> </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-info btn-sm" %> 
+    <%= link_to 'Back', projects_path, class: "btn btn-danger btn-sm" %>
+  </div>
+</div>
