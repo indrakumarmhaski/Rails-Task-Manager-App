@@ -17,3 +17,11 @@
  @import "bootstrap";
  @import "jquery-ui";
 
+ .set-min-height {
+     min-height: 500px;
+ }
+
+ .over-scroll {
+     overflow-x: scroll;
+ }
+
